@@ -1,42 +1,59 @@
-# sv
+# kiiimatz — Portfolio
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Personal portfolio site built with SvelteKit.
 
-## Creating a project
+![preview](static/image.png)
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Tech Stack
 
-```sh
-# create a new project
-npx sv create my-app
-```
+| Category | Technology |
+|----------|-----------|
+| Framework | [SvelteKit](https://kit.svelte.dev/) + TypeScript |
+| Styling | [Tailwind CSS v4](https://tailwindcss.com/) |
+| UI Components | [shadcn-svelte](https://www.shadcn-svelte.com/) / [bits-ui](https://bits-ui.com/) |
+| CMS | [microCMS](https://microcms.io/) |
+| Package Manager | [Bun](https://bun.sh/) |
 
-To recreate this project with the same configuration:
+## Pages
 
-```sh
-# recreate this project
-bun x sv@0.15.1 create --template minimal --types ts --add tailwindcss="plugins:none" --install bun portfolio
-```
+- `/` — Home / About
+- `/blogs` — Blog list (powered by microCMS)
+- `/repositories` — OSS repository list
 
-## Developing
+## Getting Started
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Prerequisites
 
-```sh
-npm run dev
+- [Bun](https://bun.sh/) >= 1.0
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
+### Install
 
 ```sh
-npm run build
+bun install
 ```
 
-You can preview the production build with `npm run preview`.
+### Environment Variables
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Create a `.env` file in the project root:
+
+```env
+VITE_MICROCMS_DOMAIN=your-service-domain
+VITE_MICROCMS_API_KEY=your-api-key
+```
+
+### Development
+
+```sh
+bun dev
+```
+
+### Build
+
+```sh
+bun run build
+bun run preview
+```
+
+## License
+
+MIT
