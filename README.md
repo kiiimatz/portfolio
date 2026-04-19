@@ -1,13 +1,8 @@
-# kiiimatz — Portfolio
+<h1 align="center">kiiimatz's portfolio</h1>
 
-Personal portfolio site built with SvelteKit.
+<p align="center">Personal portfolio site built with SvelteKit.</p>
 
 ![desktop](static/desktop.png)
-
-<p align="center">
-  <img src="static/pad.png" width="48%" alt="pad" />
-  <img src="static/phone.png" width="48%" alt="phone" />
-</p>
 
 ## Tech Stack
 
@@ -62,3 +57,12 @@ bun run preview
 ## License
 
 MIT
+
+---
+
+### Phone / Pad View
+
+<p align="center">
+  <img src="static/phone.png" height="400" alt="phone" />
+  <img src="static/pad.png" height="400" alt="pad" />
+</p>
