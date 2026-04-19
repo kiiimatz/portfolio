@@ -126,6 +126,10 @@
 	html {
 		@apply font-sans;
 	}
+	::selection {
+		background-color: color-mix(in oklch, var(--primary) 20%, transparent);
+		color: var(--primary);
+	}
 }
 
 /* Override browser autofill blue background */

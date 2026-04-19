@@ -9,25 +9,10 @@
     import Pagenation from '$lib/components/original/pagenation.svelte';
     import FooterContent from '$lib/components/original/footer-content.svelte';
     import { pagenationStore } from '$lib/store';
-    import { onMount } from 'svelte';
     import { Toaster } from '$lib/components/ui/sonner/index.js';
-    import { blogs, repositories } from '$lib/cms/datacontent.js';
-    import type { RepositoryType } from '$lib/types/repositories.types.js';
-    import type { BlogType } from '$lib/types/blogs.types.js';
-    import { client } from '$lib/cms/cms';
 	let { children, data } = $props();
 
 	$effect(() => { pagenationStore.set(data.pathname) })
-
-	let width = $state(0)
-	onMount(async () => {
-		width = 10
-		const blogsData = await client.getAllContents({ endpoint: "blogs" })
-		const repositoriesData = await client.getAllContents({ endpoint: "repositories" })
-		blogs.set(blogsData as BlogType[])
-		repositories.set(repositoriesData as RepositoryType[])
-		width = 100
-	})
 
 	fontrum([
 	  { class: "writer", font: "/fonts/writer-regular.ttf" },
@@ -40,7 +25,6 @@
 <ModeWatcher/>
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
 <Toaster toastOptions={{ class: 'bg-primary/20 backdrop-blur-2xl border-primary/10 rounded-[2px]' }}/>
-<div class="a bg-primary/60 h-[2px] absolute top-0 left-0" style="width: {width}%; opacity: {width === 100 ? 0 : 100};"/>
 <div class="sans text-[15px] tracking-right min-h-screen h-max" data-vaul-drawer-wrapper>
     <NavigatorDrawer/>
     <EmailDrawer/>

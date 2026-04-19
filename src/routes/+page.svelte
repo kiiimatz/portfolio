@@ -25,7 +25,7 @@
                 <DelayContent delay={0}>
                     <div class="flex items-center gap-2">
                         <p class="text-primary/70 dark:text-primary/45">Working at</p>
-                        <HovercardAny description="This is my team." href="/lab">xxxxxxx</HovercardAny>
+                        <HovercardAny description="This is my team." href="/lab">Kiiistudio</HovercardAny>
                     </div>
                 </DelayContent>
                 <DelayContent delay={50}>

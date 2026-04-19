@@ -11,7 +11,7 @@
         <p class="mt-[2px] text-[13px]">{title}</p>
         <Icon icon="iconamoon:arrow-down-2" class="transition-all duration-200" style="rotate: {open ? 180 : 0}deg"/>
     </DropdownMenu.Trigger>
-    <DropdownMenu.Content class="writer-mx mr-2">
+    <DropdownMenu.Content class="writer-mx mr-2" preventScroll={false}>
         <DropdownMenu.Group>
             {@render children()}
         </DropdownMenu.Group>
