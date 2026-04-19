@@ -2,7 +2,12 @@
 
 Personal portfolio site built with SvelteKit.
 
-![preview](static/image.png)
+![desktop](static/desktop.png)
+
+<p align="center">
+  <img src="static/pad.png" width="48%" alt="pad" />
+  <img src="static/phone.png" width="48%" alt="phone" />
+</p>
 
 ## Tech Stack
 
