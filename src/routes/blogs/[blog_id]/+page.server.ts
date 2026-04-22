@@ -2,7 +2,7 @@ import { getClient } from "$lib/cms/server";
 import { error } from "@sveltejs/kit";
 import type { BlogType } from "$lib/types/blogs.types";
 
-export const load = async ({ params }) => {
+export const load = async ({ params, platform }) => {
     const client = getClient();
 
     let blog: BlogType;
@@ -15,12 +15,21 @@ export const load = async ({ params }) => {
         throw error(404, "Blog not found");
     }
 
-    // Increment view count (fire and forget)
-    client.update({
+    const newView = blog.view + 1;
+
+    const updatePromise = client.update<BlogType>({
         endpoint: "blogs",
         contentId: params.blog_id,
-        content: { view: blog.view + 1 },
+        content: { view: newView },
     }).catch(() => {});
 
-    return { blog: { ...blog, view: blog.view + 1 } };
+    // Cloudflare Workers: waitUntil でレスポンス返却後も update を完走させる
+    if (platform?.context?.waitUntil) {
+        platform.context.waitUntil(updatePromise as Promise<unknown>);
+    } else {
+        // ローカル開発時は await して確実に更新
+        await updatePromise;
+    }
+
+    return { blog: { ...blog, view: newView } };
 };
