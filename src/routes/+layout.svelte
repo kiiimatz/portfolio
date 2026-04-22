@@ -10,16 +10,17 @@
     import FooterContent from '$lib/components/original/footer-content.svelte';
     import { pagenationStore } from '$lib/store';
     import { Toaster } from '$lib/components/ui/sonner/index.js';
+	import '$lib/icons';
 	let { children, data } = $props();
 
 	$effect(() => { pagenationStore.set(data.pathname) })
 
-	fontrum([
-	  { class: "writer", font: "/fonts/writer-regular.ttf" },
-	  { class: "writer-mx", font: "/fonts/writer-medium.ttf" },
-	  { class: "sans", font: "/fonts/googlesans-medium.ttf" },
-	  { class: "sans-bx", font: "/fonts/googlesans-bold.ttf" },
-    ]);
+	// fontrum([
+	//   { class: "writer", font: "/fonts/writer-regular.ttf" },
+	//   { class: "writer-mx", font: "/fonts/writer-medium.ttf" },
+	//   { class: "sans", font: "/fonts/googlesans-medium.ttf" },
+	//   { class: "sans-bx", font: "/fonts/googlesans-bold.ttf" },
+ //    ]);
 </script>
 
 <ModeWatcher/>

@@ -9,7 +9,7 @@
 <Drawer.Root bind:open={$navigatorStore}>
     <Drawer.Content class="font-writer-regular">
         <div class="px-6 pt-2">
-            <NavigatorDrawerHref icon="lucide:home" href="/">Go to the home page</NavigatorDrawerHref>
+            <NavigatorDrawerHref icon="lucide:house" href="/">Go to the home page</NavigatorDrawerHref>
             <NavigatorDrawerLine>Posts</NavigatorDrawerLine>
             <NavigatorDrawerHref icon="icon-park-outline:dolphin" href="/blogs">Blogs</NavigatorDrawerHref>
             <NavigatorDrawerHref icon="lucide-lab:elephant-face" href="/repositories">Repositories</NavigatorDrawerHref>

@@ -1,26 +1,15 @@
 <script lang="ts">
-	import { onMount, tick } from "svelte"
-
 	let {
 		children,
 		class: className = "",
 		delay = 200,
 		duration = 1200
 	} = $props()
-
-	let progress = $state(0)
-
-	onMount(async () => {
-		await tick()
-		setTimeout(() => {
-			progress = 100
-		}, delay)
-	})
 </script>
 
 <span
 	class={`title ${className}`}
-	style="background-position: {progress}% 0%; transition-duration: {duration}ms;"
+	style="--delay: {delay}ms; --duration: {duration}ms;"
 >
 	{@render children()}
 </span>
@@ -34,11 +23,16 @@
 			var(--color-primary) 67%
 		);
 		background-size: 300% 100%;
+		background-position: 0% 0%;
 		-webkit-background-clip: text;
 		background-clip: text;
 		-webkit-text-fill-color: transparent;
 		color: transparent;
-		transition-property: background-position;
-		transition-timing-function: ease;
+		animation: reveal var(--duration, 1200ms) ease var(--delay, 200ms) forwards;
+	}
+
+	@keyframes reveal {
+		from { background-position: 0% 0%; }
+		to   { background-position: 100% 0%; }
 	}
 </style>
