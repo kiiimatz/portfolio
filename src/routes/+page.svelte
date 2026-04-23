@@ -6,10 +6,10 @@
 </script>
 
 <div class="writer tracking-tight flex items-center justify-center h-screen relative">
-    <a href="/labs" class="group fixed top-14 z-20 left-0 w-full flex items-center justify-center h-8 bg-gradient-to-r from-transparent via-primary/10 to-transparent transition-all duration-300 hover:border-primary/40 border-t-[1px] border-b-[1px] border-dashed border-primary/15 cursor-pointer">
+    <a href="https://github.com/anthopus" class="group fixed top-14 z-20 left-0 w-full flex items-center justify-center h-8 bg-gradient-to-r from-transparent via-primary/10 to-transparent transition-all duration-300 hover:border-primary/40 border-t-[1px] border-b-[1px] border-dashed border-primary/15 cursor-pointer">
         <div class="flex items-center gap-1 text-primary/50 transition-all duration-300 group-hover:text-primary/80">
             <Icon icon="mingcute:ai-line" class="text-[17px] mb-[1px]"/>
-            <p class="text-[13px] mt-[2px]">Kiiimatz Studio is here. Learn more →</p>
+            <p class="text-[13px] mt-[2px]">Anthopus is here. Learn more →</p>
         </div>
     </a>
     <div>
@@ -25,7 +25,7 @@
                 <DelayContent delay={0}>
                     <div class="flex items-center gap-2">
                         <p class="text-primary/70 dark:text-primary/45">working at</p>
-                        <HovercardAny description="This is my team." href="/studio">Kiiimatz Studio</HovercardAny>
+                        <HovercardAny description="This is my team." href="https://github.com/anthopus">Anthopus</HovercardAny>
                     </div>
                 </DelayContent>
                 <DelayContent delay={50}>
