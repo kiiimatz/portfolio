@@ -8,12 +8,15 @@ export const load = async ({ params, platform }) => {
 
     let blog: BlogType;
     try {
-        blog = await client.get<BlogType>({
+        blog = await client.get({
             endpoint: "blogs",
             contentId: params.blog_id,
         });
+
         blog.body = await highlightBlogHtml(blog.body);
-    } catch {
+
+    } catch (e) {
+        console.error("ERROR:", e); // ←これ
         throw error(404, "Blog not found");
     }
 
