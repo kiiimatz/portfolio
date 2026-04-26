@@ -11,12 +11,7 @@ export const load = async ({ params, platform }) => {
         endpoint: "blogs",
         contentId: params.blog_id,
     });
-
-  try {
-       blog.body = await highlightBlogHtml(blog.body);
-  } catch (e) {
-    console.log(e)
-  }
+    blog.body = await highlightBlogHtml(blog.body);
 
     const newView = blog.view + 1;
 
