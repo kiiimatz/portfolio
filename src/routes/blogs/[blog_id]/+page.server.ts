@@ -7,17 +7,15 @@ export const load = async ({ params, platform }) => {
     const client = getClient();
 
     let blog: BlogType;
+    blog = await client.get({
+        endpoint: "blogs",
+        contentId: params.blog_id,
+    });
+
     try {
-        blog = await client.get({
-            endpoint: "blogs",
-            contentId: params.blog_id,
-        });
-
         blog.body = await highlightBlogHtml(blog.body);
-
     } catch (e) {
-        console.error("ERROR:", e); // ←これ
-        throw error(404, "Blog not found");
+        console.error("SHIKI ERROR:", e);
     }
 
     const newView = blog.view + 1;
