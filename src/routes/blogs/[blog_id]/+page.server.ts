@@ -12,13 +12,7 @@ export const load = async ({ params, platform }) => {
         contentId: params.blog_id,
     });
 
-    try {
-      console.log("BEFORE:", blog.body.includes('shiki'));
-      blog.body = await highlightBlogHtml(blog.body);
-      console.log("AFTER:", blog.body.includes('shiki'));
-    } catch (e) {
-        console.error("SHIKI ERROR:", e);
-    }
+    blog.body = await highlightBlogHtml(blog.body);
 
     const newView = blog.view + 1;
 
