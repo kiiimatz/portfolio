@@ -12,7 +12,11 @@ export const load = async ({ params, platform }) => {
         contentId: params.blog_id,
     });
 
-    // blog.body = await highlightBlogHtml(blog.body);
+  try {
+       blog.body = await highlightBlogHtml(blog.body);
+  } catch (e) {
+    console.log(e)
+  }
 
     const newView = blog.view + 1;
 

@@ -1,13 +1,19 @@
 import { createHighlighter } from 'shiki';
 import { decode } from 'html-entities';
 
-// 1回だけ初期化（毎回作ると重い）
-const highlighterPromise = createHighlighter({
-    themes: ['github-dark'],
-    langs: ['ts', 'js', 'html', 'css', 'json', 'bash']
-});
+let highlighterPromise: Promise<any> | null = null;
 
-// microCMSの language-xxx → Shiki用に変換
+// 遅延初期化（Cloudflare対応）
+async function getHighlighter() {
+    if (!highlighterPromise) {
+        highlighterPromise = createHighlighter({
+            themes: ['github-dark'],
+            langs: ['ts', 'js', 'html', 'css', 'json', 'bash']
+        });
+    }
+    return highlighterPromise;
+}
+
 const langMap: Record<string, string> = {
     typescript: 'ts',
     javascript: 'js',
@@ -16,25 +22,20 @@ const langMap: Record<string, string> = {
 };
 
 export async function highlightBlogHtml(html: string): Promise<string> {
-    const highlighter = await highlighterPromise;
+    const highlighter = await getHighlighter(); // ←ここで初めて生成
 
     return html.replace(
         /<div data-filename="(.*?)">\s*<pre><code class="language-(.*?)">([\s\S]*?)<\/code><\/pre>\s*<\/div>/g,
         (_, filename: string, lang: string, code: string) => {
 
-            // HTMLエスケープ解除（超重要）
             const decoded = decode(code);
-
-            // 言語マッピング
             const mappedLang = langMap[lang] || lang;
 
-            // Shikiでハイライト
             const highlighted = highlighter.codeToHtml(decoded, {
                 lang: mappedLang,
                 theme: 'github-dark'
             });
 
-            // ヘッダー込みで返す（SSRで完成させる）
             return `
 <div class="code-block">
     <div class="code-header">
@@ -48,9 +49,6 @@ export async function highlightBlogHtml(html: string): Promise<string> {
     );
 }
 
-/**
- * 万が一のXSS対策（ファイル名用）
- */
 function escapeHtml(str: string): string {
     return str
         .replace(/&/g, '&amp;')
