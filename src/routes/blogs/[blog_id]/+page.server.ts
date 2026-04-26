@@ -1,5 +1,6 @@
 import { getClient } from "$lib/cms/server";
 import { error } from "@sveltejs/kit";
+import { highlightBlogHtml } from "$lib/shiki";
 import type { BlogType } from "$lib/types/blogs.types";
 
 export const load = async ({ params, platform }) => {
@@ -11,6 +12,7 @@ export const load = async ({ params, platform }) => {
             endpoint: "blogs",
             contentId: params.blog_id,
         });
+        blog.body = await highlightBlogHtml(blog.body);
     } catch {
         throw error(404, "Blog not found");
     }

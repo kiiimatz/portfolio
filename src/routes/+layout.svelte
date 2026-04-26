@@ -1,7 +1,7 @@
 <script lang="ts">
 	import './layout.css';
 	import { ModeWatcher } from 'mode-watcher';
-	import { fontrum } from "@kiiimatz/fontrum"
+	import '@iconify/iconify';
 	import favicon from '$lib/assets/favicon.svg';
     import Navigator from '$lib/components/original/navigator.svelte';
     import NavigatorDrawer from '$lib/components/original/drawer/navigator-drawer.svelte';
