@@ -1,46 +1,37 @@
-import { createHighlighter } from 'shiki';
+import { getSingletonHighlighter } from 'shiki/bundle/web';
 import { decode } from 'html-entities';
 
-let highlighterPromise: Promise<any> | null = null;
-
-// 遅延初期化（Cloudflare対応）
 async function getHighlighter() {
-    if (!highlighterPromise) {
-        highlighterPromise = createHighlighter({
-            themes: ['github-dark'],
-            langs: ['ts', 'js', 'html', 'css', 'json', 'bash']
-        });
-    }
-    return highlighterPromise;
+    return getSingletonHighlighter({
+        themes: ['github-dark'],
+        langs: ['typescript', 'javascript', 'html', 'css', 'json', 'bash', 'svelte', 'tsx', 'jsx', 'python', 'sql', 'yaml']
+    });
 }
 
-const langMap: Record<string, string> = {
-    typescript: 'ts',
-    javascript: 'js',
-    shell: 'bash',
-    sh: 'bash'
-};
-
 export async function highlightBlogHtml(html: string): Promise<string> {
-    const highlighter = await getHighlighter(); // ←ここで初めて生成
+    const highlighter = await getHighlighter();
 
     return html.replace(
         /<div data-filename="(.*?)">\s*<pre><code class="language-(.*?)">([\s\S]*?)<\/code><\/pre>\s*<\/div>/g,
         (_, filename: string, lang: string, code: string) => {
-
             const decoded = decode(code);
-            const mappedLang = langMap[lang] || lang;
 
-            const highlighted = highlighter.codeToHtml(decoded, {
-                lang: mappedLang,
-                theme: 'github-dark'
-            });
+            let highlighted: string;
+            try {
+                highlighted = highlighter.codeToHtml(decoded, {
+                    lang,
+                    theme: 'github-dark'
+                });
+            } catch {
+                // 未対応言語はフォールバック
+                highlighted = `<pre><code>${escapeHtml(decoded)}</code></pre>`;
+            }
 
             return `
 <div class="code-block">
     <div class="code-header">
         <span class="code-filename">${escapeHtml(filename)}</span>
-        <span class="code-language">${mappedLang}</span>
+        <span class="code-language">${lang}</span>
     </div>
     ${highlighted}
 </div>
