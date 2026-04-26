@@ -1,10 +1,12 @@
 import { getSingletonHighlighter } from 'shiki/bundle/web';
+import { createJavaScriptRegexEngine } from 'shiki/engine/javascript';
 import { decode } from 'html-entities';
 
 async function getHighlighter() {
     return getSingletonHighlighter({
         themes: ['github-dark'],
-        langs: ['typescript', 'javascript', 'html', 'css', 'json', 'bash', 'svelte', 'tsx', 'jsx', 'python', 'sql', 'yaml']
+        langs: ['typescript', 'javascript', 'html', 'css', 'json', 'bash', 'svelte', 'tsx', 'jsx', 'python', 'sql', 'yaml'],
+        engine: createJavaScriptRegexEngine(),
     });
 }
 
