@@ -13,7 +13,9 @@ export const load = async ({ params, platform }) => {
     });
 
     try {
-        blog.body = await highlightBlogHtml(blog.body);
+      console.log("BEFORE:", blog.body.includes('shiki'));
+      blog.body = await highlightBlogHtml(blog.body);
+      console.log("AFTER:", blog.body.includes('shiki'));
     } catch (e) {
         console.error("SHIKI ERROR:", e);
     }
