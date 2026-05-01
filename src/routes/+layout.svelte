@@ -2,7 +2,7 @@
 	import './layout.css';
 	import { ModeWatcher } from 'mode-watcher';
 	import '@iconify/iconify';
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/favicon.ico';
     import Navigator from '$lib/components/original/navigator.svelte';
     import NavigatorDrawer from '$lib/components/original/drawer/navigator-drawer.svelte';
     import EmailDrawer from '$lib/components/original/drawer/email-drawer.svelte';
@@ -24,7 +24,10 @@
 </script>
 
 <ModeWatcher/>
-<svelte:head><link rel="icon" href={favicon} /></svelte:head>
+<svelte:head>
+    <link rel="icon" href={favicon} />
+    <title>kiiimatz</title>
+</svelte:head>
 <Toaster toastOptions={{ class: 'bg-primary/20 backdrop-blur-2xl border-primary/10 rounded-[2px]' }}/>
 <div class="sans text-[15px] tracking-right min-h-screen h-max" data-vaul-drawer-wrapper>
     <NavigatorDrawer/>
