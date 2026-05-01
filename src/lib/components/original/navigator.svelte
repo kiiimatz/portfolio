@@ -30,7 +30,7 @@
                 <a href="/blogs" class="flex items-center gap-0.5 transition-all duration-200 px-2.5 py-1 rounded-[5px] cursor-pointer {isBlogs?'bg-primary/5 dark:bg-primary/10':'bg-primary/0'} hover:bg-primary/5 hover:dark:bg-primary/10">
                     <p class="mt-[2px] text-[13px]">Blogs</p>
                 </a>
-                <a href="/repositories" class="flex items-center gap-0.5 transition-all duration-200 px-2.5 py-1 rounded-[5px] cursor-pointer {pathname==='/extensions'?'bg-primary/5 dark:bg-primary/10':'bg-primary/0'} hover:bg-primary/5 hover:dark:bg-primary/10">
+                <a href="/repositories" class="flex items-center gap-0.5 transition-all duration-200 px-2.5 py-1 rounded-[5px] cursor-pointer {pathname==='/repositories'?'bg-primary/5 dark:bg-primary/10':'bg-primary/0'} hover:bg-primary/5 hover:dark:bg-primary/10">
                     <p class="mt-[2px] text-[13px]">Repositories</p>
                 </a>
                 <DropdownContext title="Link">
