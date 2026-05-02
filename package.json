@@ -36,7 +36,7 @@
 	"dependencies": {
 		"@iconify/iconify": "^3.1.1",
 		"@iconify/svelte": "^5.2.1",
-		"@kiiimatz/fontux": "^0.2.1",
+		"@kiiimatz/fontux": "^0.2.2",
 		"html-entities": "^2.6.0",
 		"marked": "^18.0.1",
 		"microcms-js-sdk": "^3.4.0",
