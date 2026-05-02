@@ -1,6 +1,4 @@
-// export { handle } from "@kiiimatz/fontrum/hooks";
-
-import { createHandle } from "@kiiimatz/fontrum/hooks";
+import { createHandle } from "@kiiimatz/fontux/hooks";
 
 export const handle = createHandle([
   { class: "writer", font: "/fonts/writer-regular.ttf" },
