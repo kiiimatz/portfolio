@@ -1,4 +1,4 @@
-import { createHandle } from "@kiiimatz/fontux/hooks";
+import { createHandle } from "@kiiimatz/flux/hooks";
 
 export const handle = createHandle([
   { class: "writer", font: "/fonts/writer-regular.woff2" },
