@@ -7,7 +7,7 @@
       "dependencies": {
         "@iconify/iconify": "^3.1.1",
         "@iconify/svelte": "^5.2.1",
-        "@kiiimatz/flux": "^2.0.1",
+        "@kiiimatz/flux": "^2.0.2",
         "html-entities": "^2.6.0",
         "marked": "^18.0.1",
         "microcms-js-sdk": "^3.4.0",
@@ -192,7 +192,7 @@
 
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.31", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw=="],
 
-    "@kiiimatz/flux": ["@kiiimatz/flux@2.0.1", "", {}, "sha512-Mxf/CjgO+ZOakO4MnMMNQbXhqqA3ed8n/0+oZRzvpIEUh7Sa92wdErRruaVvYhab0BSuCllx+DGHgR4g5VlZfw=="],
+    "@kiiimatz/flux": ["@kiiimatz/flux@2.0.2", "", {}, "sha512-x+wQBFspaXsv2DIiKF7EIORFThhVpC80/5MnpbPe2jEY4CnKb+q3ugt0WyzawLl4mwYOlzWZXk5iBP7tFVycsg=="],
 
     "@napi-rs/wasm-runtime": ["@napi-rs/wasm-runtime@1.1.4", "", { "dependencies": { "@tybys/wasm-util": "^0.10.1" }, "peerDependencies": { "@emnapi/core": "^1.7.1", "@emnapi/runtime": "^1.7.1" } }, "sha512-3NQNNgA1YSlJb/kMH1ildASP9HW7/7kYnRI2szWJaofaS1hWmbGI4H+d3+22aGzXXN9IJ+n+GiFVcGipJP18ow=="],
 
