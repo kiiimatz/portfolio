@@ -33,13 +33,11 @@
                         <p class="text-primary/70 dark:text-primary/45 mr-1.5">creator of</p>
                         <!-- <HovercardAny description="Simple and customized note app." href="https://k.hideko.rest">Kustom</HovercardAny>
                         <p class="mr-1.5 text-primary/45">,</p> -->
-                        <HovercardAny description="Self-hosted reverse tunnel. TCP & UDP." href="https://github.com/kiiimatz/tailway">tailway</HovercardAny>
+                        <HovercardAny description="Modern, but Powerful Notebooks." href="https://github.com/anthopus">opus</HovercardAny>
                         <p class="mr-1.5 text-primary/45">,</p>
-                        <HovercardAny description="Packed with convenience." href="https://github.com/hideko-dev/complex">complex</HovercardAny>
+                        <HovercardAny description="Self-hosted reverse tunnel. Supports any protocols." href="https://github.com/hideko-dev/tailway">tailway</HovercardAny>
                         <p class="mr-1.5 text-primary/45">,</p>
-                        <HovercardAny description="Monitor servers efficiently." href="https://github.com/kiiimatz/watchdog">watchdog</HovercardAny>
-                        <p class="mr-1.5 text-primary/45">,</p>
-                        <HovercardAny description="Lightweight font management for SvelteKit." href="https://github.com/kiiimatz/fontrum">fontrum</HovercardAny>
+                        <HovercardAny description="Lightweight font management for SvelteKit." href="https://github.com/kiiimatz/flux">flux</HovercardAny>
                     </div>
                 </DelayContent>
                 <DelayContent delay={100}>
